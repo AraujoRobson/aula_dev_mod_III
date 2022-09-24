@@ -50,19 +50,40 @@ public class App {
 	
 	private void listarPorProjeto() {
 		em = JPAUtil.getEntityManager();
-		em.close();
+		
+		String jpql = "SELECT p FROM Projeto p";
+		List<Projeto> projetos = em.createQuery(jpql, Projeto.class).getResultList();
+		
+		for (Projeto p : projetos) {
+			System.out.println(
+					p.getCodigo() + " - " + p.getNome());
+			for (Funcionario f : p.getFuncionarios()) {
+				System.out.println("\t" +
+						f.getCodigo() + " - " + f.getNome());
+			}
+		}
 	}
 	
 	private void listarPorFuncionario() {
 		em = JPAUtil.getEntityManager();
+		String jpql = "SELECT f FROM Funcionario f";
+		List<Funcionario> funcionarios = em.createQuery(jpql, Funcionario.class).getResultList();
+		for(Funcionario f : funcionarios) {
+			System.out.println(f.getCodigo() + " - " + f.getNome());
+			
+			for(Projeto p : f.getProjetos()) {
+				System.out.println("\t" + p.getCodigo() + " - " + p.getNome());
+			}
+		}
 		
-		em.close();
 	}
 	
 	public static void main(String[] args) {
 		App app = new App();
 		
 		app.adicionarDados();
+		app.listarPorFuncionario();
+		app.listarPorProjeto();
 	}
 
 }
