@@ -24,6 +24,7 @@ app.listen(porta,
   )
 
 function processaRequisicao(res){
+  let msgAlert = 'O Resultado da operação foi: '
   let resultado = 0;
   switch(operacao){
     case 1:
@@ -36,8 +37,35 @@ function processaRequisicao(res){
       resultado = valor1 * valor2;
       break;
     case 4:
-      resultado = valor1 / valor2;
+      if(valor2 == 0 ){
+        msgAlert = 'Impossível dividir por ZERO!!';
+      } else {
+        resultado = valor1 / valor2;
+      }
       break;
   }
-  res.send(''+ resultado);
+  msgAlert += resultado;
+  let mensagem = `<h3><div ckass="alert alert-primary">${msgAlert}</div></h3>`;
+  HTML = `
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      crossorigin="anonymous">
+
+    <div class="container" style="margin-top: 0.5rem">
+      ${mensagem}
+
+      <button type="button" onclick="window.history.back()" class="btn btn-outline-danger">
+        <i class="fas fa-door-open"></i>
+        Voltar
+      </button>
+       
+      <button type="button" onclick="alert('${msgAlert}');" class="btn btn-primary">
+        <i class="fab fa-js-square"></i></i>
+        Java
+      </button>
+    </div>
+  `;
+  res.send(HTML);
 }
