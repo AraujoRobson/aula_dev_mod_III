@@ -57,10 +57,7 @@ function processReq(res, value){
         Voltar
       </button>
        
-      <button type="button" onclick="alert('${msgAlert}');" class="btn btn-primary">
-        <i class="fab fa-js-square"></i></i>
-        Java
-      </button>
+
     </div>
   `;
   res.send(HTML);
