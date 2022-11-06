@@ -12,21 +12,35 @@
 </head>
 <body>
   <div class="container" style="width: 50%">
-    <form action="http://localhost:8080/reverse" method="get" class="was-validated">
-      <h2 id="reverse" class="alert alert-info" style="margin-top: 0.5rem; text-align: center;" >Formulario Questão 2</h2>
+    <h2 id="formulario" class="alert alert-danger" style="margin-top: 0.5rem; text-align: center;" >Formulario Questão 2</h2>
 
-      <div class="form-group mb-3">
-        <label for="iValue">Frase:</label>
-        <input name="fValue" id="iValue" class="form-control" placeholder="Digite algo." required>
-      </div>
+    <div class="form-group mb-3">
+      <label for="iValue">Digite algo:</label>
+      <input name="fValue" id="iValue" class="form-control" placeholder="Digite algo." required>
+    </div>
 
-      <div class="form-group mb-3">
-        <button type="submit" class="btn btn-primary">
-          <span class="fas fa-recycle"></span>
-          Reverter
-        </button>
-      </div>
-    </form>
+    <div class="form-group mb-3">
+      <button class="btn btn-primary" id="btn">
+        <span class="fas fa-print"></span>
+        Printar no Console
+      </button>
+    </div>
   </div>
+
+  <div id="mostrar" style="text-align: center; font-size: larger;"></div>
+
+  <script>
+    const element = document.getElementById("btn");
+    element.addEventListener("click", function(){
+      let text = document.getElementById("iValue").value;
+      console.log(text);
+      document.getElementById('formulario').innerHTML = text;
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous">
+  </script>
 </body>
 </html>
