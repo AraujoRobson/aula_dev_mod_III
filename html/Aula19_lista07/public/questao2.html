@@ -27,14 +27,22 @@
     </div>
   </div>
 
-  <div id="mostrar" style="text-align: center; font-size: larger;"></div>
+  <hr>
+
+  <div style="text-align: center; font-size: larger;">
+    <span id="mostrar" ></span>
+  </div>
+
+  <hr>
+
+
 
   <script>
     const element = document.getElementById("btn");
     element.addEventListener("click", function(){
       let text = document.getElementById("iValue").value;
       console.log(text);
-      document.getElementById('formulario').innerHTML = text;
+      document.getElementById('mostrar').innerHTML = text;
     });
   </script>
 
