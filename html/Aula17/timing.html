@@ -25,7 +25,7 @@
       );
     }
 
-    function stop_stopwatch(){
+    function pause_stopwatch(){
       clearInterval(stopwatch);
     }
 
@@ -44,7 +44,7 @@
   </p>
   <hr>
   <button onclick="start_stopwatch()">Start</button>
-  <button onclick="stop_stopwatch()">Pause</button>
+  <button onclick="pause_stopwatch()">Pause</button>
   <button onclick="reset_stopwatch()">Stop/Reset</button>
   <p>
     <div id="interval"></div>
