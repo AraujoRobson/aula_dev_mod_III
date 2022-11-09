@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="styles" href="/assets/styles.css">
+
+  <script>
+    let stopwatch, value = 0;
+
+    function stopwatch_start(){
+      const element = document.getElementById('btn_start');
+      element.addEventListener("click", function(){
+        let value_form = parseInt(document.getElementById("iValue").value);
+        console.log(value_form);
+      })
+    }
+
+    function stopwatch_20(){
+      value = 20;
+      stopwatch = setInterval(
+        function(){
+          if(value > 0){
+            value --;
+            document.getElementById('interval').innerHTML = value;
+          }else{
+            stopwatch_stop();
+          }
+        }, 450
+      )
+    }
+
+    function stopwatch_pause(){
+      clearInterval(stopwatch);
+    }
+
+    function stopwatch_stop(){
+      value = 0
+      document.getElementById('interval').innerHTML = value;
+      clearInterval(stopwatch);
+    }
+  </script>
+
+  <title>Questão 4</title>
+
+</head>
+<body>
+  <div class="container" style="width: 50%;">
+    <div class="blur">
+      <div class="form-group mb-3">
+        <h2 id="form"
+            class="alert alert-danger"
+            style="margin-top: 0.5rem; text-align: center;">
+            Formulario Questão 4
+        </h2>
+
+        <label for="iValue">Digite um valor para contagem regressiva</label>
+        <input name="fValue"
+                type="number"
+                id="iValue"
+                class="form-control"
+                placeholder="SOMENTE NÚMEROS."
+                required>
+      </div>
+
+      <div class="form-group">
+        <button onclick="stopwatch_start()"
+                class="btn btn-primary"
+                id="btn_start">
+          <span class="fas fa-stopwatch"></span>
+          Iniciar
+        </button>
+
+        <button onclick="stopwatch_pause()"
+                class="btn btn-primary">
+          <span class="fas fa-pause-circle"></span>
+          Pausar
+        </button>
+
+        <button onclick="stopwatch_stop()"
+                class="btn btn-primary">
+          <span class="fas fa-stop-circle"></span>
+          Parar/Resetar
+        </button>
+
+        <button onclick="stopwatch_20()"
+                class="btn btn-primary">
+          <span class="fas fa-stopwatch-20"></span>
+          20'
+        </button>
+      </div>
+
+      <div>
+        <hr>
+        <h3 id="interval"
+            class="alert alert-info"
+            style="margin-top: 0.5rem; text-align: center;">
+          0
+        </h3>
+        <hr>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
