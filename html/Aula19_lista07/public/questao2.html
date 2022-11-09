@@ -12,7 +12,7 @@
 </head>
 <br>
   <div class="container" style="width: 50%">
-    <h2 id="formulario" class="alert alert-danger" style="margin-top: 0.5rem; text-align: center;" >Formulario Questão 2</h2>
+    <h2 id="formulario" class="alert alert-danger" style="margin-top: 0.5rem; text-align: center;" >Formulario Questões 2 e 3</h2>
 
     <div class="form-group mb-3">
       <label for="iValue">Digite algo:</label>
@@ -25,21 +25,47 @@
         Printar no Console
       </button>
     </div>
+
+
+    <hr>
+
+    <div style="text-align: center; font-size: larger;">
+      <span id="mostrar" ></span>
+    </div>
+    <hr>
+
+
+
+    </br>
+    </br>
+    </br>
+    <div style="margin: auto; text-align: center;">
+      <button type="button"
+              class="btn btn-primary"
+              id="chageColor"
+              onclick="btnClick()"
+              value="blue">
+        <span class="fas fa-burn"></span>
+        Trocar Cor
+      </button>
+    </div>
+    </br>
+      <div  id="changeColor"
+            style="margin: auto;
+                  border: 1px solid;
+                  height: 100px;
+                  width: 100px;
+                  background: green;">
+      </div>
+    </div>
   </div>
 
-  <hr>
-
-  <div style="text-align: center; font-size: larger;">
-    <span id="mostrar" ></span>
-  </div>
-
-  <hr>
-
-  </br>
-  </br>
-  </br>
-
-  <div style="justify-content: center; height: 100px; width: 100px; border: 1px;">a</div>
+  <script>
+    function btnClick(){
+      let changeColor = document.getElementById('changeColor');
+      changeColor.style.backgroundColor = 'blue';
+    }
+  </script>
 
   <script>
     const element = document.getElementById("btn");
