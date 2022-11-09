@@ -12,11 +12,16 @@
     let stopwatch, value = 0;
 
     function stopwatch_start(){
-      const element = document.getElementById('btn_start');
-      element.addEventListener("click", function(){
-        let value_form = parseInt(document.getElementById("iValue").value);
-        console.log(value_form);
-      })
+      stopwatch = setInterval(
+        function(){
+          if(value > 0){
+            value --;
+            document.getElementById('interval').innerHTML = value;
+          }else{
+            stopwatch_stop();
+          }
+        }, 500
+      )
     }
 
     function stopwatch_20(){
@@ -29,7 +34,7 @@
           }else{
             stopwatch_stop();
           }
-        }, 450
+        }, 500
       )
     }
 
@@ -38,9 +43,24 @@
     }
 
     function stopwatch_stop(){
-      value = 0
+      tocarAudio();
+      value = 0;
       document.getElementById('interval').innerHTML = value;
       clearInterval(stopwatch);
+    }
+
+    function tocarAudio(){
+      let arquivo = "https://doc-04-5s-docs.googleusercontent.com/docs/securesc/evmbnge4pdqrnc8j78o0ro074tqj2kp1/tphk1qm203g68ilna67bco5nuqgg4a82/1668012900000/02715398518618547969/02715398518618547969/1FMKlTGADjG8xJG9iwE6TPXf21vIo26oj?e=download&amp;ax=AEKYgySP2Yc0kRFcPycNU-lBlp0jLXAl_owXJbKvfq6c5Wz_BXjiPsxb51-dT_7bk3FMAk7jhf7A1ekX13NiMcxiYk_epo6DgvLH82V0T5dfBYirXtarRvaslUz0C-d2hEosHcyvVbvKbyEUoOD3Mw8rT6q-9APqu4VuOZzcE33oXyEY63MFdJX6UmAPjNsvC3L54UYj7gx6LSQRhzh2VWSC4-cW61hzYaXrab87rluNmTlctkBgqKc5adIuhpoazS3EkFV2etmc86h433Lai6xt78ojik2vriFQLP9mGtuwQcjPVjY_ox6VhYGK7q_Q4wJiLR843sgaKBxGULvc2qehG2236caVSgg93oZitB0BrdVEfySbIs5BYK3yZqoabOoqCGeV1xaA3d37gYqYz0ramzygWpkTadNdv0lt8P6aVOcm0QXxvmBC5KTivLqqyINCP7VB97gv2L1CCoHX3EEhZlA6xdABZ-SfqVvaLowhUchUoZm5c7pN540AxZkfhuivTCnjAv5CCsnKyRtJuzH2ZD-rzu7R0YsD-yVpl3RwLTZLODzoVUYfNuYOv0Hh7ZfwbVIpOgDovF6jz-XcD07g5-QRB7BkKPpFuDqUJueHVlMPOS1OA_kURxrsjamK6dIrMoa3u2249wJ9s4E8WdnW4W0maEqL7cefxW5bb9f4P9CMqoSjpHsoIOo62IrK4M-ZQ0UnRbyyATEt3uG9FxeEa5NM_buyhVlmEtuh15r5UrmwzQzN1OdAJdlUY4_GirBd0BWYqKgCzTe8rnEu2QAWKs46-hFOTx3TwnmWgfYnjNi9HRAWoRH6iNL4pquzGtpwAI-3mCQyvwM8MJD_w7SlqGTydBavdrCuK3uSLQw2BieHx3m_rAZGySnS88sXuXbFON3nyWQvMZER8qb_10GEaZIpvVaKMDtyn0Y2bWyzuxzpc4JXWxKq7i0X3lm2aDSjwoW3xxhL-9I&amp;uuid=0c3e61ca-c47a-4b9d-b92f-168e7e9abe26&amp;authuser=0";
+
+      let audio = document.createElement('audio');
+      audio.src = arquivo;
+      audio.autoplay = 'true';
+
+      audio.onended = function() {
+        this.remove();
+      };
+
+      document.body.appendChild(audio);
     }
   </script>
 
@@ -105,5 +125,7 @@
 
     </div>
   </div>
+
+  <source src="https://doc-04-5s-docs.googleusercontent.com/docs/securesc/evmbnge4pdqrnc8j78o0ro074tqj2kp1/tphk1qm203g68ilna67bco5nuqgg4a82/1668012900000/02715398518618547969/02715398518618547969/1FMKlTGADjG8xJG9iwE6TPXf21vIo26oj?e=download&amp;ax=AEKYgySP2Yc0kRFcPycNU-lBlp0jLXAl_owXJbKvfq6c5Wz_BXjiPsxb51-dT_7bk3FMAk7jhf7A1ekX13NiMcxiYk_epo6DgvLH82V0T5dfBYirXtarRvaslUz0C-d2hEosHcyvVbvKbyEUoOD3Mw8rT6q-9APqu4VuOZzcE33oXyEY63MFdJX6UmAPjNsvC3L54UYj7gx6LSQRhzh2VWSC4-cW61hzYaXrab87rluNmTlctkBgqKc5adIuhpoazS3EkFV2etmc86h433Lai6xt78ojik2vriFQLP9mGtuwQcjPVjY_ox6VhYGK7q_Q4wJiLR843sgaKBxGULvc2qehG2236caVSgg93oZitB0BrdVEfySbIs5BYK3yZqoabOoqCGeV1xaA3d37gYqYz0ramzygWpkTadNdv0lt8P6aVOcm0QXxvmBC5KTivLqqyINCP7VB97gv2L1CCoHX3EEhZlA6xdABZ-SfqVvaLowhUchUoZm5c7pN540AxZkfhuivTCnjAv5CCsnKyRtJuzH2ZD-rzu7R0YsD-yVpl3RwLTZLODzoVUYfNuYOv0Hh7ZfwbVIpOgDovF6jz-XcD07g5-QRB7BkKPpFuDqUJueHVlMPOS1OA_kURxrsjamK6dIrMoa3u2249wJ9s4E8WdnW4W0maEqL7cefxW5bb9f4P9CMqoSjpHsoIOo62IrK4M-ZQ0UnRbyyATEt3uG9FxeEa5NM_buyhVlmEtuh15r5UrmwzQzN1OdAJdlUY4_GirBd0BWYqKgCzTe8rnEu2QAWKs46-hFOTx3TwnmWgfYnjNi9HRAWoRH6iNL4pquzGtpwAI-3mCQyvwM8MJD_w7SlqGTydBavdrCuK3uSLQw2BieHx3m_rAZGySnS88sXuXbFON3nyWQvMZER8qb_10GEaZIpvVaKMDtyn0Y2bWyzuxzpc4JXWxKq7i0X3lm2aDSjwoW3xxhL-9I&amp;uuid=0c3e61ca-c47a-4b9d-b92f-168e7e9abe26&amp;authuser=0" type="audio/mpeg">
 </body>
 </html>
