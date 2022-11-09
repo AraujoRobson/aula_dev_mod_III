@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timing</title>
+
+  <script>
+    let stopwatch, value = 0;
+    function test_SetTimeout(){
+      setTimeout(
+        function(){
+          document.getElementById('timeOut').innerHTML = '*** BUMM!!! ***';
+        }, 500
+      );
+    }
+
+    function start_stopwatch(){
+      stopwatch = setInterval(
+        function(){
+          value ++;
+          document.getElementById('interval').innerHTML = value;
+        }, 1000
+      );
+    }
+
+    function stop_stopwatch(){
+      clearInterval(stopwatch);
+    }
+
+    function reset_stopwatch(){
+      value = 0
+      document.getElementById('interval').innerHTML = value;
+      clearInterval(stopwatch);
+    }
+
+  </script>
+</head>
+<body style="text-align: center;">
+  <button onclick="test_SetTimeout()">test setTimeout()</button>
+  <p>
+    <div id="timeOut">Hello!</div>
+  </p>
+  <hr>
+  <button onclick="start_stopwatch()">Start</button>
+  <button onclick="stop_stopwatch()">Pause</button>
+  <button onclick="reset_stopwatch()">Stop/Reset</button>
+  <p>
+    <div id="interval"></div>
+  </p>
+</body>
+</html>

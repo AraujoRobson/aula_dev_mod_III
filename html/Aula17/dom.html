@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+
+  <script>
+    function tocarAudio(){
+      let arquivo = "http://www.kasandbox.org/programming-sounds/rpg/giant-no.mp3";
+
+      let audio = document.createElement('audio');
+      audio.src = arquivo;
+      audio.autoplay = 'true';
+
+      audio.onended = function() {
+        this.remove();
+      };
+
+      document.body.appendChild(audio);
+    }
+  </script>
+
+</head>
+<body style="text-align: center;">
+  <a href="http://www.kasandbox.org/programming-sounds/rpg/giant-no.mp3">
+    <h2>
+      Tocar SOM!
+    </h2>
+  </a>
+
+  <a id="no" href="http://www.kasandbox.org/programming-sounds/rpg/giant-no.mp3">
+    <h2>Tocar som sem abrir link</h2>
+  </a>
+
+  <button onclick="tocarAudio()">Ouvir Som</button>
+</body>
+</html>
