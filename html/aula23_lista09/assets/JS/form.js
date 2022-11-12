@@ -11,13 +11,18 @@ form.addEventListener('submit', function(e){
   const name = inputName.value
   const address = inputAddress.value
   const email = inputEmail.value
+
   let birth = new Date(inputBirth.value)
-  birth = `${padTo2Digits(birth.getDay())}/${padTo2Digits(birth.getMonth())}/${padTo2Digits(birth.getFullYear())}`
+  const day = padTo2Digits(birth.getDay())
+  const month = padTo2Digits(birth.getMonth())
+  const year = padTo2Digits(birth.getFullYear())
+  birth = `${day}/${month}/${year}`
+
   const salary = Number(inputSalary.value)
 
   console.log(`${name}, ${address}, ${email}, ${birth}, ${salary} `)
 })
 
-let padTo2Digits = number => {
-  return number.toString().padStart(2, '0')
-}
+// funcao para colocar 0 nas datas para ficar 08/09/2022
+let padTo2Digits = number => number.toString().padStart(2, '0')
+
