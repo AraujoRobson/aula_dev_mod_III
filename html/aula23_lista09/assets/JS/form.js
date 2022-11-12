@@ -16,16 +16,13 @@ form.addEventListener('submit', function(e){
   const password = inputPassword.value
   const confirmedPassword = inputConfirmedPassword.value
 
-  let birth = new Date(inputBirth.value)
-  const day = padTo2Digits(birth.getDay())
-  const month = padTo2Digits(birth.getMonth())
-  const year = padTo2Digits(birth.getFullYear())
-  birth = `${day}/${month}/${year}`
-
+  let birth = inputBirth.value
+  birth = birth.split('-')
+  birth = `${birth[2]}/${birth[1]}/${birth[0]}`
   const salary = `R$ ${Number(inputSalary.value)}`
 
   const person = {
-    name, address, email, birth, salary
+    name, address, email, birth, salary, password
   }
 
   if(!validate_password(password, confirmedPassword)){
@@ -36,8 +33,5 @@ form.addEventListener('submit', function(e){
   }
 
 })
-
-// funcao para colocar 0 nas datas para ficar 08/09/2022
-let padTo2Digits = number => number.toString().padStart(2, '0')
 
 let validate_password = (password, confirmedPassword) => (password == confirmedPassword) ? true : false
