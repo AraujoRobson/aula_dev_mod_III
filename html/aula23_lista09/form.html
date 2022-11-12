@@ -5,8 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="assets/JS/form.js"></script>
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" crossorigin="anonymous">
 
@@ -14,33 +12,37 @@
 </head>
 <body style="background-color: black;">
 <br>
-  <div class="container rounded-3" style="width: 50%; background-color: dimgrey;">
+  <section class="container rounded-3" style="width: 50%; background-color: dimgrey;">
   <br>
-    <h2 id="form" class="alert alert-danger" style="margin-top: 0.5rem; text-align: center;" >Formulario Questão 2</h2>
+    <h2 id="formulario" class="alert alert-danger" style="margin-top: 0.5rem; text-align: center;" >Formulario Questão 2</h2>
 
-    <div class="form-group mb-3">
-      <input type="text" name="fName" id="iName" class="form-control" placeholder="Nome:" required>
-      <input type="text" name="fAddress" id="iAddress" class="form-control" placeholder="Endereço:" required>
-      <input type="email" name="fEmail" id="iEmail" class="form-control" placeholder="Email" required>
-      <input type="date" name="fBirth" id="iBirth" class="form-control" required>
-      <input type="number" name="fSalary" id="iSalary" class="form-control" placeholder="Salario:" required>
-    </div>
-    <hr>
-    <div class="form-group mb-3">
-      <label for="iPassword">Senha:</label>
-      <input type="password" name="fPassword" id="iPassword" class="form-control" placeholder="Senha:" required>
-      <label for="iConfirmedPassword">Confirmação de Senha:</label>
-      <input type="password" name="fConfirmedPassword" id="iConfirmedPassword" class="form-control" placeholder="Confirmar senha:" required>
-    </br>
-      <div style="margin: auto; text-align: right;">
-        <button onclick="confirmedPassword()" class="btn btn-primary">
-          <span class="	far fa-address-card"></span>
-          Submit
-        </button>
+    <form action="/" id="form" method="post">
+      <div class="form-group mb-3">
+        <input type="text" name="fName" id="iName" class="form-control" placeholder="Nome:" required>
+        <input type="text" name="fAddress" id="iAddress" class="form-control" placeholder="Endereço:" required>
+        <input type="email" name="fEmail" id="iEmail" class="form-control" placeholder="Email" required>
+        <input type="date" name="fBirth" id="iBirth" class="form-control" required>
+        <input type="number" name="fSalary" id="iSalary" class="form-control" placeholder="Salario:" required>
       </div>
-    </div>
+      <hr>
+      <div class="form-group mb-3">
+        <label for="iPassword">Senha:</label>
+        <input type="password" name="fPassword" id="iPassword" class="form-control" placeholder="Senha:" required>
+        <label for="iConfirmedPassword">Confirmação de Senha:</label>
+        <input type="password" name="fConfirmedPassword" id="iConfirmedPassword" class="form-control" placeholder="Confirmar senha:" required>
+      </br>
+        <div style="margin: auto; text-align: right;">
+          <button class="btn btn-dark">
+            <span class="	far fa-address-card"></span>
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
   <br>
-  </div>
+  </section>
+
+  <script src="assets/JS/form.js"></script>
 
 </body>
 </html>
