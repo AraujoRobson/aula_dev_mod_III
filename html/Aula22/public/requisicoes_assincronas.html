@@ -11,7 +11,7 @@
   <title>Página 1</title>
 
   <script>
-    function requisitarPAgina(url){
+    function requestPage(url){
       // INSTANCIA O AJAX
       let ajax = new XMLHttpRequest()
 
@@ -29,9 +29,16 @@
       // FUNÇÃO CHAMADA SEMPRE QUE O ESTADO ALTERAR
       ajax.onreadystatechange = () => {
         console.log('Estado ReadyState:', ajax.readyState)
+
         if(ajax.readyState == 4){
           console.log('Requisição finalizada.')
-          document.querySelector('#iConteudo').remove
+
+          if(ajax.status == 200){
+            console.log('Resposta ok, com código:', ajax.status)
+            document.querySelector('#iCarregamento').remove()
+          }else if(ajax.status == 404){
+            console.log('Recurso não encontrado.')
+          }
         }
       }
 
@@ -57,14 +64,24 @@
 	<div class="container">
 		<div class="row mb-2 justify-content-center">
 			<div class="col-auto">
-				<a href="#" class="btn btn-primary" onclick="requisitarPAgina('pagina_1_conteudo.html')">
+				<a href="#" class="btn btn-primary"
+        onclick="requestPage('pagina_1_conteudo.html')">
           Página 1
         </a>
-        <a href="#" class="btn btn-primary" onclick="requisitarPAgina('pagina_2_conteudo.html')">
+
+        <a href="#" class="btn btn-primary"
+        onclick="requestPage('pagina_2_conteudo.html')">
           Página 2
         </a>
-				<a href="#" class="btn btn-primary" onclick="requisitarPAgina('pagina_3_conteudo.html')">
+
+				<a href="#" class="btn btn-primary"
+        onclick="requestPage('pagina_3_conteudo.html')">
           Página 3
+        </a>
+
+        <a href="#" class="btn btn-primary"
+        onclick="requestPage('http://localhost:8080/processa-requisicao')">
+          Server node.js
         </a>
 			</div>
 		</div>
