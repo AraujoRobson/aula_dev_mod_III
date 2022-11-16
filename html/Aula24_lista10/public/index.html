@@ -11,6 +11,55 @@
   <title>Lista 10</title>
 </head>
 <body>
+  <div class="container" style="width: 50%">
+    <hr>
+    <div class="row">
+      <div class="col">
+        <label for="iName">Nome:</label>
+        <input id="iName" type="text" name="fName" class="form-control">
+      </div>
+      <div class="col">
+        <label for="iAddress">Endereço:</label>
+        <input id="iAddress" type="text" name="fAddress" class="form-control">
+      </div>
+    </div>
 
+    <br>
+
+    <div class="row g-2">
+      <div class="col-sm-4">
+        <label for="iState">US:</label>
+        <select name="state" id="iState" class="form-select form-select-sm">
+          <option selected>Selecione um Estado</option>
+          <option value="1">Paraná</option>
+          <option value="2">Santa Catarina</option>
+          <option value="3">Rio Grande do Sul</option>
+        </select>
+      </div>
+
+      <div class="col-sm-8">
+        <label for="iState">Cidade:</label>
+        <select name="state" id="iState" class="form-select form-select-sm" aria-label=".form-select-sm example">
+          <option selected>Selecione uma Cidade</option>
+          <option value="1">Paraná</option>
+          <option value="2">Santa Catarina</option>
+          <option value="3">Rio Grande do Sul</option>
+        </select>
+      </div>
+
+      <a href="#" class="btn btn-primary"
+      onclick="requestJSON('http://localhost:8080/return-json')">
+        Mostrar JSON
+      </a>
+    </div>
+    <hr>
+    <div class="row">
+			<div class="col-md-1"></div>
+
+      <div id="iContent" class="col-md-10"></div>
+
+      <div class="col-md-1"></div>
+		</div>
+  </div>
 </body>
 </html>
