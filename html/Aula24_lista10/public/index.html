@@ -28,6 +28,12 @@
 
       let name = document.querySelector('#iName').value
       url += '?name=' + name
+      let address = document.querySelector('#iAddress').value
+      url += '?address=' + address
+      let us = document.querySelector('#iUs').value
+      url += '?us=' + us
+      let city = document.querySelector('#iCity').value
+      url += '?city=' + city
       // ReadyState = 1: CONEXÃO ABERTA
       ajax.open('GET', url)
 
@@ -52,11 +58,11 @@
     <div class="row">
       <div class="col">
         <label for="iName">Nome:</label>
-        <input id="iName" type="text" name="fName" class="form-control">
+        <input id="iName" type="text" name="fName" class="form-control" required>
       </div>
       <div class="col">
         <label for="iAddress">Endereço:</label>
-        <input id="iAddress" type="text" name="fAddress" class="form-control">
+        <input id="iAddress" type="text" name="fAddress" class="form-control" required>
       </div>
     </div>
 
@@ -65,7 +71,7 @@
     <div class="row g-2">
       <div class="col-sm-4">
         <label for="iState">US:</label>
-        <select name="state" id="iState" class="form-select form-select-sm">
+        <select name="state" id="iState" class="form-select form-select-sm" required>
           <option selected>Selecione um Estado</option>
           <option value="1">Paraná</option>
           <option value="2">Santa Catarina</option>
@@ -75,11 +81,11 @@
 
       <div class="col-sm-8">
         <label for="iState">Cidade:</label>
-        <select name="state" id="iState" class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <select name="state" id="iState" class="form-select form-select-sm" required>
           <option selected>Selecione uma Cidade</option>
-          <option value="1">Paraná</option>
-          <option value="2">Santa Catarina</option>
-          <option value="3">Rio Grande do Sul</option>
+          <option value="1">São Miguel do Oeste</option>
+          <option value="2">Chapecó</option>
+          <option value="3">Florianópolis</option>
         </select>
       </div>
 
