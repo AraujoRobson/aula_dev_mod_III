@@ -42,10 +42,15 @@
             document.querySelector('#iConteudo').innerHTML = '<h3>Recurso não encontrado!</h3>'
             document.querySelector('#iConteudo').innerHTML += 'Status da resposta: ' + ajax.status
             console.log('Recurso não encontrado.')
+          } else if(ajax.status == 201){
+            let person = JSON.parse(ajax.responseText)
+            document.querySelector('#iConteudo').innerHTML = `<pre>${JSON.stringify(person, undefined, 2)}</pre>`
           }
         }
       }
 
+      let name = document.querySelector('#iName').value
+      url += '?name=' + name
       // ReadyState = 1: CONEXÃO ABERTA
       ajax.open('GET', url)
 
@@ -67,7 +72,7 @@
 
 	<div class="container">
     <div class="row justify-content-center">
-      <input type="texte" value="Fulano" id="iNome">
+      <input type="text" value="Fulano" id="iName">
     </div>
 
   <hr>
