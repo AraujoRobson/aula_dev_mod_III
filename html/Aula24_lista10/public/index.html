@@ -31,11 +31,11 @@
       let address = document.querySelector('#iAddress').value
       url += '?address=' + address
       let us = document.querySelector('#iState').value
-      url += '?us=' + us
+      url += '?uf=' + us
       let city = document.querySelector('#iCity').value
       url += '?city=' + city
       // ReadyState = 1: CONEXÃO ABERTA
-      ajax.open('GET', url)
+      ajax.open('GET', url, true)
 
       // ReadyState = 2: requisição enviada ao servidor
       ajax.send()
