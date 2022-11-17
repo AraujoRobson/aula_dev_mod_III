@@ -30,7 +30,7 @@
       url += '?name=' + name
       let address = document.querySelector('#iAddress').value
       url += '?address=' + address
-      let us = document.querySelector('#iUs').value
+      let us = document.querySelector('#iState').value
       url += '?us=' + us
       let city = document.querySelector('#iCity').value
       url += '?city=' + city
@@ -81,7 +81,7 @@
 
       <div class="col-sm-8">
         <label for="iState">Cidade:</label>
-        <select name="state" id="iState" class="form-select form-select-sm" required>
+        <select name="city" id="iCity" class="form-select form-select-sm" required>
           <option selected>Selecione uma Cidade</option>
           <option value="1">São Miguel do Oeste</option>
           <option value="2">Chapecó</option>
