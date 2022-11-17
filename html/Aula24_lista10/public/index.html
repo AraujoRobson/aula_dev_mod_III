@@ -29,11 +29,11 @@
       let name = document.querySelector('#iName').value
       url += '?name=' + name
       let address = document.querySelector('#iAddress').value
-      url += '?address=' + address
-      let us = document.querySelector('#iState').value
-      url += '?uf=' + us
+      url += '&address=' + address
+      let uf = document.querySelector('#iState').value
+      url += '&uf=' + uf
       let city = document.querySelector('#iCity').value
-      url += '?city=' + city
+      url += '&city=' + city
       // ReadyState = 1: CONEXÃO ABERTA
       ajax.open('GET', url, true)
 
@@ -73,19 +73,25 @@
         <label for="iState">US:</label>
         <select name="state" id="iState" class="form-select form-select-sm" required>
           <option selected>Selecione um Estado</option>
-          <option value="1">Paraná</option>
-          <option value="2">Santa Catarina</option>
-          <option value="3">Rio Grande do Sul</option>
+          <option value="Paraná">Paraná</option>
+          <option value="Santa Catarina">Santa Catarina</option>
+          <option value="Rio Grande do Sul">Rio Grande do Sul</option>
         </select>
       </div>
 
       <div class="col-sm-8">
-        <label for="iState">Cidade:</label>
+        <label for="iCity">Cidade:</label>
         <select name="city" id="iCity" class="form-select form-select-sm" required>
           <option selected>Selecione uma Cidade</option>
-          <option value="1">São Miguel do Oeste</option>
-          <option value="2">Chapecó</option>
-          <option value="3">Florianópolis</option>
+          <option value="São Miguel do Oeste">São Miguel do Oeste</option>
+          <option value="Chapecó">Chapecó</option>
+          <option value="Florianópolis">Florianópolis</option>
+          <option value="Curitiba">Curitiba</option>
+          <option value="Fco Beltrao">Fco Beltrao</option>
+          <option value="Barracão">Barracão</option>
+          <option value="Porto Alegre">Porto Alegre</option>
+          <option value="Gramado">Gramado</option>
+          <option value="Bento Golçanves">Bento Golçanves</option>
         </select>
       </div>
 
