@@ -10,11 +10,28 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>Lista 11</title>
 </head>
-<body>
-  <div class="container">
-    <div class="wrapper">
+<body style="background-color: black;">
+  <section class="container rounded-3" style="width: 50%; background-color: dimgrey;">
+    <form action="/" id="form" method="post">
+      <div class="form-group">
+        <label for="iEmail">E-mail:</label>
+        <input name="fEmail"
+              type="email"
+              id="iEmail"
+              class="form-control"
+              placeholder="E-mail"
+              required>
 
-    </div>
-  </div>
+        <label for="iPassword">Senha:</label>
+        <input name="fPassword"
+              type="password"
+              id="iPassword"
+              class="form-control"
+              placeholder="Senha:"
+              required>
+      </div>
+
+    </form>
+  </section>
 </body>
 </html>
