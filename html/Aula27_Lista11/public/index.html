@@ -9,17 +9,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" crossorigin="anonymous">
   <title>Lista 11</title>
 </head>
-<body style="background-image: url(./assets/imgs/background.gif); background-size: cover;">
+<body style="background-image: url(./assets/imgs/background.gif); background-size: auto;">
   <br>
   <br>
-  <section class="container rounded-3" style="width: 50%; background-color: rgb(155, 153, 153);">
+  <section class="container rounded-3" style="width: 65%; background-color: rgb(155, 153, 153);">
     <br>
     <h2 id="iForm" class="alert alert-info" style="margin-top: 0.5rem; text-align: center;" >Lista 11</h2>
 
-    <form action="/" id="form" method="get" class="was-validated">
+    <form action="/validated_login" method="get" class="was-validated">
       <div class="form-group mb-3">
         <div class="input-group mb-3">
-          <input type="email"
+          <input name="fEmail"
+                id="iEmail"
+                type="email"
                 class="form-control"
                 aria-label="E-mail"
                 aria-describedby="basic-email"
@@ -29,8 +31,8 @@
         <div class="input-group">
           <span class="input-group-text" id="basic-password">Senha:</span>
           <input name="fPassword"
-          type="password"
           id="iPassword"
+          type="password"
           class="form-control"
           aria-label="Password"
           aria-describedby="basic-password"
