@@ -9,20 +9,34 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" crossorigin="anonymous">
 
   <script>
-    function requestPage(url){
+    function changeState(uf){
       document.querySelector('#iContent').innerHTML = ''
 
       let ajax = new XMLHttpRequest()
 
       ajax.onreadystatechange = () => {
-        if(ajax.status == 200){
-          document.querySelector('#iContent').innerHTML = ajax.responseText
-        } else if (ajax.status == 404){
-          document.querySelector('#iContent').innerHTML = '<h3>Recurso não encontrado!</h3>'
-          document.querySelector('#iContent').innerHTML += 'Status da resposta: ' + ajax.status
-        } else if(ajax.status == 201){
-          let person = JSON.parse(ajax.responseText)
-          document.querySelector('#iContent').innerHTML = `<pre>${JSON.stringify(person, undefined, 2)}</pre>`
+        if(ajax.readyState === 4){
+          if(ajax.status === 200){
+            const response = JSON.parse(ajax.responseText)
+            const cities = document.querySelector('#iCities')
+            cities.innerHTML = ''
+
+            for(const city of response.cities){
+              const option = document.createElement('option')
+              option.text = city
+              city.add(option)
+
+              if(option.value == 'Selecione uma Cidade'){
+                option.disabled = true
+              }
+            }
+          } else if (ajax.status == 404){
+            document.querySelector('#iContent').innerHTML = '<h3>Recurso não encontrado!</h3>'
+            document.querySelector('#iContent').innerHTML += 'Status da resposta: ' + ajax.status
+          } else if(ajax.status == 201){
+            let person = JSON.parse(ajax.responseText)
+            document.querySelector('#iContent').innerHTML = `<pre>${JSON.stringify(person, undefined, 2)}</pre>`
+          }
         }
       }
 
@@ -54,61 +68,54 @@
 	</nav>
 
   <div class="container" style="width: 50%">
-    <h3 style="text-align: center;">CADASTRO</h3>
-    <hr>
-    <div class="row">
-      <div class="col">
-        <label for="iName">Nome:</label>
-        <input id="iName" type="text" name="fName" class="form-control" required>
-      </div>
-      <div class="col">
-        <label for="iAddress">Endereço:</label>
-        <input id="iAddress" type="text" name="fAddress" class="form-control" required>
-      </div>
-    </div>
-
-    <br>
-
-    <div class="row g-2">
-      <div class="col-sm-4">
-        <label for="iState">UF:</label>
-        <select name="state" id="iState" class="form-select form-select-sm" required>
-          <option selected>Selecione um Estado</option>
-          <option value="Paraná">Paraná</option>
-          <option value="Santa Catarina">Santa Catarina</option>
-          <option value="Rio Grande do Sul">Rio Grande do Sul</option>
-        </select>
+    <form method="get" action="#">
+      <h3 style="text-align: center;">CADASTRO</h3>
+      <hr>
+      <div class="row was-validated">
+        <div class="col">
+          <label for="iName">Nome:</label>
+          <input id="iName" type="text" name="fName" class="form-control" required>
+        </div>
+        <div class="col">
+          <label for="iAddress">Endereço:</label>
+          <input id="iAddress" type="text" name="fAddress" class="form-control" required>
+        </div>
       </div>
 
-      <div class="col-sm-8">
-        <label for="iCity">Cidade:</label>
-        <select name="city" id="iCity" class="form-select form-select-sm" required>
-          <option selected>Selecione uma Cidade</option>
-          <option value="São Miguel do Oeste">São Miguel do Oeste</option>
-          <option value="Chapecó">Chapecó</option>
-          <option value="Florianópolis">Florianópolis</option>
-          <option value="Curitiba">Curitiba</option>
-          <option value="Fco Beltrao">Fco Beltrao</option>
-          <option value="Barracão">Barracão</option>
-          <option value="Porto Alegre">Porto Alegre</option>
-          <option value="Gramado">Gramado</option>
-          <option value="Bento Golçanves">Bento Golçanves</option>
-        </select>
+      <br>
+
+      <div class="row g-2">
+        <div class="col-sm-4 was">
+          <label for="iState">UF:</label>
+          <select id="iState" class="form-select form-select-sm"
+                  onchange="changeState(this.options[this.selectedIndex].text);" >
+            <option selected disabled>Selecione um Estado</option>
+            <option value="1">Paraná</option>
+            <option value="2">Santa Catarina</option>
+            <option value="3">Rio Grande do Sul</option>
+          </select>
+        </div>
+
+        <div class="col-sm-8">
+          <label for="iCity">Cidade:</label>
+          <select name="cities" id="iCities" class="form-select form-select-sm">
+            <option selected disabled>Selecione uma Cidade</option>
+          </select>
+        </div>
+
+        <a href="#" class="btn btn-primary">
+          Mostrar JSON { }
+        </a>
       </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-1"></div>
 
-      <a href="#" class="btn btn-primary"
-      onclick="requestPage('http://localhost:8080/return-json')">
-        Mostrar JSON
-      </a>
-    </div>
-    <hr>
-    <div class="row">
-			<div class="col-md-1"></div>
+        <div id="iContent" class="col-md-10"></div>
 
-      <div id="iContent" class="col-md-10"></div>
-
-      <div class="col-md-1"></div>
-		</div>
+        <div class="col-md-1"></div>
+      </div>
+    </form>
   </div>
 </body>
 </html>
