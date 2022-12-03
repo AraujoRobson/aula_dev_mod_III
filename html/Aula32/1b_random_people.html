@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Fetch</title>
+</head>
+<body>
+  <ul id="iUsers"></ul>
+
+  <script>
+    const list = document.getElementById('iUsers')
+    fetch('https://randomuser.me/api?results=5')
+      .then(answer => {
+        <!-- console.log(answer) -->
+        return answer
+      })
+      .then(answer => answer.json())
+      .then(answer => {
+        let users = answer.results
+
+        for (user of users) {
+          let item = document.createElement('li')
+          item.innerHTML = `${user.name.title}. ${user.name.first} ${user.name.last}`
+          list.appendChild(item)
+        }
+      })
+      .catch(error => console.log(`Error... ${error}`))
+      .finally(() => console.log('Finally Request') )
+  </script>
+</body>
+</html>

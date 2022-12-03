@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemple API Fetch</title>
+
+  <script>
+    const CEP = '20973012'
+    const URL = `https://viacep.com.br/ws/${CEP}/json/`
+
+    const OPTIONS = {
+      method: 'GET',
+      mode: 'cors',
+    }
+
+    fetch(URL, OPTIONS)
+      .then(response => response.json())
+      .then(content => {
+        if (content.err){
+          alert('CEP INVÁLIDO')
+        } else {
+          console.log(content)
+          console.log('Rua:', content.logradouro)
+          console.log('Bairro:', content.bairro)
+        }
+      })
+  </script>
+</head>
+<body>
+  <h2>TESTES API</h2>
+</body>
+</html>
