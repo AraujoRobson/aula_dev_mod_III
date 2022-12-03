@@ -1,5 +1,5 @@
 function consult(){
-  const ZIP_CODE = document.querySelector('#cep').value //'20973012'
+  const ZIP_CODE = document.querySelector('#iZip_code').value //'20973012'
   const URL = `https://viacep.com.br/ws/${ZIP_CODE}/json/`
 
   const OPTIONS = {
@@ -20,7 +20,7 @@ function consult(){
 }
 
 function show_result(status, data){
-  let result = document.querySelector('#result')
+  let result = document.querySelector('#iResult')
   if (status){
     if (data.err){
       result.innerHTML = 'Não foi possivel localizar endereço!'
