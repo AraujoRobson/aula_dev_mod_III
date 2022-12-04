@@ -15,7 +15,7 @@ form.addEventListener('submit', function(e){
 
   console.log(`${form_data.get('fUser')}: ${form_data.get('fPassword')}`)
 
-  fetch('https://localhost:8080/postBP',{
+  fetch('https://localhost:8080/postBP', {
     method: 'POST',
     body: JSON.stringify(Object.fromEntries(form_data)),
     headers: {
