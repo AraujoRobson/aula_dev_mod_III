@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<movies>
+  <movie id="1">
+    <title>O Senhor dos Anéis: A Sociedade do Anel</title>
+    <summary>O filme narra a procura do Senhor do Escuro Sauron pelo Um Anel. O anel que atualmente está em posse do hobbit Frodo Bolseiro (Elijah Wood). O destino da Terra-média está em risco, e ele depende apenas de Frodo e mais oito companheiros que formam a Sociedade do Anel que agora rumam para a Montanha da Perdição, na Terra de Mordor, o único local onde o anel pode ser destruído.</summary>
+    <genre>Ficção científica</genre>
+    <genre>Épico</genre>
+    <genre>Fantasia</genre>
+    <cast>
+      <actor>Elijah Wood</actor>
+      <actor>Ian McKellen</actor>
+      <actor>Viggo Mertensen</actor>
+      <actor>Liv Tyler</actor>
+      <actor>Cate Blanchett</actor>
+      <actor>Orlando Bloom</actor>
+      <actor>Christopher Lee</actor>
+      <actor>Hugo Weaving</actor>
+    </cast>
+    <releaseDate pais='Franca'>19 de dezembro de 2001</releaseDate>
+  </movie>
+
+  <movie id="2">
+    <title>Vingadores: Guerra Infinita</title>
+    <summary>Homem de Ferro, Thor, Hulk e os Vingadores se unem para combater seu inimigo mais poderoso, o maligno Thanos. Em uma missão para coletar todas as seis pedras infinitas, Thanos planeja usá-las para infligir sua vontade maléfica sobre a realidade.</summary>
+    <genre>Aventura</genre>
+    <genre>Ação</genre>
+    <cast>
+      <actor>Robert Downey Jr</actor>
+      <actor>Chris Hemsworth</actor>
+      <actor>Mark Ruffalo</actor>
+      <actor>Chris Evans</actor>
+      <actor>Scarlett Johansson</actor>
+      <actor>Benedict Cumberbatch</actor>
+      <actor>Zoe Saldaña</actor>
+    </cast>
+    <releaseDate pais='Brasil'>26 de abril de 2018</releaseDate>
+  </movie>
+</movies>
