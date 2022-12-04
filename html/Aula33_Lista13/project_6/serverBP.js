@@ -22,11 +22,11 @@ app.get('/', (request, response) => {
 // POST request handling
 app.post('/postBP', function(req, res){
   console.log('Server: ',req.body)
-  console.log('Server: ', req.body.user)
+  console.log('User: ', req.body.fUser)
 
-  req.body.user = req.body.user.toUpperCase()
+  req.body.fUser = req.body.fUser.toUpperCase()
 
-  if(req.body.user === ''){
+  if(req.body.fUser === ''){
     res.status(404).send({})
   } else {
     res.status(200).send(req.body)
