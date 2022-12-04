@@ -14,6 +14,33 @@
 
 </head>
 <body>
+  <nav class="navbar navbar-light bg-light mb-4">
+    <div class="container">
+      <h3>Catálogo de Filmes</h3>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p>
+          <button type="button" class="btn btn-secondary" onclick="getMoviesXHR()">
+            Listar filmes (XMLHttpRequest)
+          </button>
+          <button type="button" class="btn btn-success" onclick="getMoviesAjax()">
+            Listar filmes (Ajax + JQuery)
+          </button>
+          <button type="button" class="btn btn-primary" onclick="getMoviesfetch()">
+            Listar filmes (Fetch API)
+          </button>
+          <button type="button" class="btn btn-danger" onclick="getMoviesAA()">
+            Listar filmes (async/await)
+          </button>
+        </p>
+      </div>
+    </div>
+    <div id="iContent"></div>
+  </div>
 
   <script src="./assets/js/index.js"></script>
 </body>
