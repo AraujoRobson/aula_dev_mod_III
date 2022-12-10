@@ -2,6 +2,7 @@ let name_channel = 'unoescoficial'
 let credential = 'AIzaSyAc0dQl3qi8iSbS5iUuMknfSoqJ06jRMk8'
 
 $(document).ready(function(){
+  Fancybox.bind("[data-fancybox-plyr]", {})
   console.log('Working JQuery and uploaded script.js')
 
   $.get('https://www.googleapis.com/youtube/v3/channels',{
@@ -25,20 +26,24 @@ $(document).ready(function(){
       key: credential
     }, content => {
       $.each(content.items, (_, item) => {
-        let img, title, file, published_at, description
+        let img, title, file, published_at, description, video
         img = item.snippet.thumbnails.medium.url
         title = item.snippet.title
 
         moment.locale('pt')
-        pulication_date = new moment(item.snippet.publishedAt).format('DD [de] MMMM [de] YYYY')
+        published_at = new moment(item.snippet.publishedAt).format('DD [de] MMMM [de] YYYY')
 
         description = item.snippet.description;
         description = description.replace(/((https?|file|ftp):\/\/[\w?=&.\/-;#~%-]+(\w\s?&.\/;#~%"=-]*>))/g,
                                         '<a href="$1" target="_blank">$1</a>')
 
+        video = item.snippet.resourceId.videoId
+
         file = `<li class="main">
                   <div class="photo">
-                    <img src="${img}">
+                    <a data-fancybox-plyr href="https://www.youtube.com/watch?v=${video}">
+                      <img src="${img}">
+                    </a>
                     <div class="caption">
                       <h5>${title}</h5>
                       <p>
