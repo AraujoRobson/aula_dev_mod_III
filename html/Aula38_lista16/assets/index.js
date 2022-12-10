@@ -32,4 +32,3 @@ console.log('');
 console.log('filtered price 5000 and map by name');
 console.table(map);
 
-console.log('teste');
