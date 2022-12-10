@@ -11,7 +11,7 @@ console.table(products)
 
 let invalidEntries = 0
 
-filterByIDArrow = products.filter(obj => {
+filterByID = products.filter(obj => {
   if ('price' in obj && typeof(obj.price) === 'number' && !isNaN(obj.price) && obj.price > 5000) {
     return true
   } else {
@@ -20,10 +20,10 @@ filterByIDArrow = products.filter(obj => {
   }
 })
 
-map = filterByIDArrow.map(item => {
+map = filterByID.map(item => {
     return item.name
 })
 console.log('');
 
 console.log('filter and map (Arrow function)');
-console.table(mapArrow)
+console.table(map)
