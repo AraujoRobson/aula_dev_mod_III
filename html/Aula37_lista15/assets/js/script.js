@@ -1,5 +1,5 @@
 let name_channel = 'unoescoficial'
-let credential = 'AIzaSyAc0dQl3qi8iSbS5iUuMknfSoqJ06jRMk8'
+let credential = key
 
 $(document).ready(function(){
   Fancybox.bind("[data-fancybox-plyr]", {})
