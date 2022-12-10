@@ -25,10 +25,28 @@ let map = products.filter(filterByID).map(function(item) {
 })
 
 console.log('');
-console.log('filter by price: 5000');
-console.table(products.filter(filterByID))
+// console.log('filter by price: 5000');
+// console.table(products.filter(filterByID))
 
+// console.log('');
+// console.log('filtered price 5000 and map by name');
+// console.table(map);
+
+filterByIDArrow = products.filter(obj => {
+  if ('price' in obj && typeof(obj.price) === 'number' && !isNaN(obj.price) && obj.price > 5000) {
+    return true
+  } else {
+    invalidEntries++
+    return false
+  }
+})
+
+mapArrow = filterByIDArrow.map(item => {
+    return item.name
+})
+console.log('filter by price: 5000 (Arrow function)');
+console.table(filterByIDArrow)
 console.log('');
-console.log('filtered price 5000 and map by name');
-console.table(map);
 
+console.log('filter and map (Arrow function)');
+console.table(mapArrow)
