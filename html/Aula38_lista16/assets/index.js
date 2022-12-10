@@ -8,3 +8,15 @@ const products = [
 ]
 console.table(products)
 
+let invalidEntries = 0
+
+function filterByID(obj) {
+  if ('price' in obj && typeof(obj.price) === 'number' && !isNaN(obj.price) && obj.price > 5000) {
+    return true
+  } else {
+    invalidEntries++
+    return false
+  }
+}
+
+console.table(products.filter(filterByID))
