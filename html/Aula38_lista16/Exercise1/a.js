@@ -21,7 +21,7 @@ filterByID = products.filter(obj => {
 })
 
 map = filterByID.map(item => {
-    return item.name
+  return item.name
 })
 console.log('');
 
