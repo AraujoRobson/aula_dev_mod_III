@@ -12,7 +12,7 @@ app.use(express.json())
 
 app.use(formData.parse())
 
-app.use('/api/users', require('./routes'))
+app.use('/api/users', require('./userRoutes'))
 
 app.get('/', (request, response) => {
   response.status(200).send('Home Page')
