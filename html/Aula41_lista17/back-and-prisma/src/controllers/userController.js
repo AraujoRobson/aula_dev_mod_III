@@ -35,5 +35,20 @@ module.exports = {
     } catch (error) {
       res.json(error)
     }
+  },
+
+  async searchUserById(req, res){
+    try{
+      const { id } = req.params
+
+      const user = await User.findUnique({ where: { id: Number(id) } })
+      if(!user){
+        return res.status(200).json({ mensage: "User not found!" })
+      }
+
+      res.status(200).json(user)
+    }catch(error){
+      res.json(error)
+    }
   }
 }
