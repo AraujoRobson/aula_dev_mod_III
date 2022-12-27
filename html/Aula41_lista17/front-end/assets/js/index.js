@@ -37,7 +37,7 @@ function createTable(users){
         if(confirm('Are you sure you want to delete?')){
           axios.delete(`${API}/${user.id}`, {
           }).then(res => {
-              alert(res.data.mensage)
+              alert(res.data.message)
               listUser()
             })
         }

@@ -28,7 +28,7 @@ async function updateUser() {
 
   axios.put(URL + id, { name, email })
     .then(res => {
-      alert(res.data.mensage)
+      alert(res.data.message)
       console.log(res.data.user)
       setTimeout(() => window.location.href = '/front-end', 100)
     })
