@@ -1,5 +1,5 @@
 let formName, formEmail
-const URL = 'http://localhost:8081/api/users'
+const URL = 'http://localhost:8081/api/users/'
 
 window.onload = function(e){
   formName = document.querySelector('#iName')
