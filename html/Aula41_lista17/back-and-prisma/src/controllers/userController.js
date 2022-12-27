@@ -12,7 +12,7 @@ module.exports = {
         }
       })
       if(users.length === 0){
-        return res.status(200).json({ mensage: "There are no registered users!" })
+        return res.status(200).json({ message: "There are no registered users!" })
       }
 
       res.status(200).json({users})
@@ -31,7 +31,7 @@ module.exports = {
           email
         }
       })
-      res.status(200).json({ mensage: "User successfully added!", user })
+      res.status(200).json({ message: "User successfully added!", user })
     } catch (error) {
       res.json(error)
     }
@@ -43,7 +43,7 @@ module.exports = {
 
       const user = await User.findUnique({ where: { id: Number(id) } })
       if(!user){
-        return res.status(200).json({ mensage: "User not found!" })
+        return res.status(200).json({ message: "User not found!" })
       }
 
       res.status(200).json(user)
@@ -59,7 +59,7 @@ module.exports = {
 
       let user = await User.findUnique({ where: { id: Number(id) } })
       if(!user){
-        return res.status(200).json({ mensage: "User not found!" })
+        return res.status(200).json({ message: "User not found!" })
       }
 
       user = await User.update({
@@ -67,7 +67,7 @@ module.exports = {
         data: { name, email }
       })
 
-      res.status(200).json({ mensage: "User update successfully!", user})
+      res.status(200).json({ message: "User update successfully!", user})
     }catch(error){
       res.json(error)
     }
@@ -79,11 +79,11 @@ module.exports = {
 
       const user = await User.findUnique({ where: { id: Number(id) } })
       if(!user){
-        return res.status(200).json({ mensage: "User not found!" })
+        return res.status(200).json({ message: "User not found!" })
       }
 
       await User.delete({ where: { id: Number(id) } })
-      res.status(200).json({ mensage: "Deleted user!" })
+      res.status(200).json({ message: "Deleted user!" })
     }catch(error){
       res.json(error)
     }
