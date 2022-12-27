@@ -19,7 +19,8 @@ function fillOutForm(user){
 }
 
 async function searchUser(id) {
-  return await axios.get(URL + id).data
+  const response = await axios.get(URL + id)
+  return response.data
 }
 
 async function updateUser() {

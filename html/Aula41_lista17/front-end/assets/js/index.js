@@ -1,5 +1,5 @@
 let formName, formEmail, formOp, form
-const FRONT = 'http://localhost:5502/front-end/'
+const FRONT = 'http://localhost:5500/front-end/'
 const API = 'http://localhost:8081/api/users'
 
 window.onload = function(e){
@@ -27,7 +27,7 @@ function createTable(users){
 
       const btnEdit = document.createElement('a')
       btnEdit.innerHTML = 'Edit'
-      btnEdit.setAttribute('href', `${FRONT} 'update_user.html?id='${user.id}`)
+      btnEdit.setAttribute('href', FRONT + 'update_user.html?id=' + user.id)
       btnEdit.classList.add('btn', 'btn-primary', 'me-2')
 
       const btnDelete = document.createElement('a')
