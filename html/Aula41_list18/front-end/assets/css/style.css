@@ -19,3 +19,22 @@ table, th, tr, td{
 tr td:nth-child(2), td:nth-child(3) {
   text-align: left;
 }
+
+#iPhoto{
+  opacity: 0;
+}
+
+#iPhoto-label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-40%);
+}
+
+#photo-area{
+  border: 5px dashed rgba(255, 0, 0, 0.7);
+  background-color: #eee;
+  padding: 1rem;
+  position: relative;
+  width: 20%;
+}

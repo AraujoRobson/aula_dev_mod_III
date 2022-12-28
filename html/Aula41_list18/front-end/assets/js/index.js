@@ -1,13 +1,13 @@
-let formName, formEmail, formOp, form
 const FRONT = 'http://localhost:5500/front-end/'
 const API = 'http://localhost:8081/api/users'
 
 window.onload = function(e){
-  formName = document.querySelector('#iName')
-  formEmail = document.querySelector('#iEmail')
-  form = document.querySelector('#iForm')
-  formOp = document.querySelector('#iOp')
   listUser()
+}
+
+async function listUser(){
+  const res = await axios.get(API, { })
+  createTable(res.data.users)
 }
 
 function createTable(users){
@@ -24,6 +24,16 @@ function createTable(users){
 
       const tdEmail = document.createElement('td')
       tdEmail.innerHTML = user.email
+
+      const tdPhoto = document.createElement('td')
+      let img = document.createElement('img')
+      img.setAttribute('width', '100px')
+
+      const base64String = new Uint8Array(user.photo.data)
+      const blob = new Blob([base64String], {type: 'img.png'})
+      img.src = URL.createObjectURL(blob)
+      tdPhoto.appendChild(img)
+
 
       const btnEdit = document.createElement('a')
       btnEdit.innerHTML = 'Edit'
@@ -51,6 +61,7 @@ function createTable(users){
       tr.appendChild(tdId)
       tr.appendChild(tdName)
       tr.appendChild(tdEmail)
+      tr.appendChild(tdPhoto)
       tr.appendChild(tdActions)
 
       return tr
@@ -60,9 +71,3 @@ function createTable(users){
   }
 }
 
-async function listUser(){
-  const res = await axios.get(API, {
-  })
-  console.log(res)
-  createTable(res.data.users)
-}
