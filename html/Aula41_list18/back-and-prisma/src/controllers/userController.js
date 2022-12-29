@@ -73,5 +73,20 @@ module.exports = {
     } finally {
       fs.unlinkSync('uploads/img.png')
     }
+  },
+
+  async delete(req, res){
+    try{
+      const { id } = req.params
+
+      const user = await User.findUnique({ where: { id: Number(id) } })
+      if(!user){
+        return res.status(200).json({ message: 'User not found!' })
+      }
+      await User.delete({ where: { id: Number(id) } })
+      res.status(200).json({ message: 'Deleted user!' })
+    } catch (error){
+      res.json(error)
+    }
   }
 }
