@@ -38,6 +38,24 @@
         <label for="iName">E-mail</label>
       </div>
 
+      <div class="form-group">
+        <div class="input-group mb-3 px-2 py-2 py-2 rounded-pill bg-white shadow-sm">
+          <input id="iPhoto" type="file" name="nPhoto" class="form-control" accept="image/*">
+          <label id="iPhoto-label" for="iPhoto" class="font-weight-light text-muted">Select a photo</label>
+
+          <div class="input-group-append">
+            <label id="iPhoto" class="btn btn-dark m-0 rounded-pill px-4">
+              <i class="fa fa-cloud-upload mr-2"></i>
+              <small class="text-uppercase font-weight-bold">Select a file</small>
+            </label>
+          </div>
+        </div>
+
+        <div id="photo-area" class="mt-4 mb-4 mx-auto">
+          <img id="result-img" src="#" alt="" class="mx-auto img-fluid rounded shadow-sm d-block">
+        </div>
+      </div>
+
       <div class="form-group mb-3 text-center">
         <div id="iOperation" class="d-inline">
           <button type="button" class="btn btn-success" onclick="updateUser()">
