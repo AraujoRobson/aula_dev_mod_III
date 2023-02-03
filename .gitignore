@@ -1,3 +1,4 @@
 *metadata/*
 *node_modules/*
 node_modules
+/.metadata/

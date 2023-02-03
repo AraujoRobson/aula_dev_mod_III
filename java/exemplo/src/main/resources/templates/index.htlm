@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>"Hello World!</title>
+</head>
+<body>
+	<h2>Hello Spring Boot!!!<h2>
+	<p th:text="${message}">
+		message
+	</p>
+	
+	<br>
+	
+	<span th:text="${product}></span>
+	<span th:text="${product.name}></span>
+	
+</body>
+
+</html>
