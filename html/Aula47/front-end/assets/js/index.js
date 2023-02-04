@@ -1,33 +1,35 @@
-let formName, formEmail, formOp, form
-const FRONT = 'http://localhost:5500/front-end/'
-const API = 'http://localhost:8081/api/users'
+const FRONT = 'http://localhost:5500/'
+const API = 'http://localhost:8081/api/products/'
 
 window.onload = function(e){
-  formName = document.querySelector('#iName')
-  formEmail = document.querySelector('#iEmail')
-  form = document.querySelector('#iForm')
-  formOp = document.querySelector('#iOp')
-  listUser()
+  listProducts()
 }
 
-function createTable(users){
-  const tableBody = document.querySelector('#iUsers')
+function createTable(products){
+  const tableBody = document.querySelector('#iProducts')
   tableBody.innerHTML = ''
 
-  if(users){
-    const lines = users.map(user => {
+  if(products){
+    const lines = products.map(product => {
       const tdId = document.createElement('td')
-      tdId.innerHTML = user.id
+      tdId.innerHTML = product.id
 
-      const tdName = document.createElement('td')
-      tdName.innerHTML = user.name
+      const tdDescription = document.createElement('td')
+      tdDescription.innerHTML = product.description
 
-      const tdEmail = document.createElement('td')
-      tdEmail.innerHTML = user.email
+      const tdQuantity = document.createElement('td')
+      tdQuantity.innerHTML = product.quantity
+
+      const tdPrice = document.createElement('td')
+      tdPrice.innerHTML = product.price.toLocaleString('pt-BR',
+                                                        {
+                                                          currency: 'BRL',
+                                                          style: 'currency'
+                                                        })
 
       const btnEdit = document.createElement('a')
       btnEdit.innerHTML = 'Edit'
-      btnEdit.setAttribute('href', FRONT + 'update_user.html?id=' + user.id)
+      btnEdit.setAttribute('href', FRONT + 'update_product.html?id=' + product.id)
       btnEdit.classList.add('btn', 'btn-primary', 'me-2')
 
       const btnDelete = document.createElement('a')
@@ -35,10 +37,10 @@ function createTable(users){
       btnDelete.classList.add('btn', 'btn-danger')
       btnDelete.addEventListener('click', function (event){
         if(confirm('Are you sure you want to delete?')){
-          axios.delete(`${API}/${user.id}`, {
+          axios.delete(`${API} + ${product.id}`, {
           }).then(res => {
-              alert(res.data.message)
-              listUser()
+              //alert(res.data.message)
+              listProducts()
             })
         }
       }, false)
@@ -49,8 +51,9 @@ function createTable(users){
 
       const tr = document.createElement('tr')
       tr.appendChild(tdId)
-      tr.appendChild(tdName)
-      tr.appendChild(tdEmail)
+      tr.appendChild(tdDescription)
+      tr.appendChild(tdQuantity)
+      tr.appendChild(tdPrice)
       tr.appendChild(tdActions)
 
       return tr
@@ -60,9 +63,9 @@ function createTable(users){
   }
 }
 
-async function listUser(){
+async function listProducts(){
   const res = await axios.get(API, {
   })
   console.log(res)
-  createTable(res.data.users)
+  createTable(res.data)
 }
