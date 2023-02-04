@@ -37,7 +37,7 @@ function createTable(products){
       btnDelete.classList.add('btn', 'btn-danger')
       btnDelete.addEventListener('click', function (event){
         if(confirm('Are you sure you want to delete?')){
-          axios.delete(`${API} + ${product.id}`, {
+          axios.delete(API + product.id, {
           }).then(res => {
               //alert(res.data.message)
               listProducts()

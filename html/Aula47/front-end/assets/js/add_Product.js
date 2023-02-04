@@ -14,7 +14,7 @@ async function addProduct(){
   const quantity = formQuantity.value
   const price = formPrice.value
 
-  axios.post(URL, {id, description, quantity, price })
+  axios.post(URL, {id, description, quantity, price})
     .then(res => {
       res.data.toString()
       alert(res.data.message)
