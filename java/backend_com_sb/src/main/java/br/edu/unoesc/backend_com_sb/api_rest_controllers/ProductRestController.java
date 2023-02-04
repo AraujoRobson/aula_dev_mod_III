@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,10 +29,24 @@ public class ProductRestController {
 		products.add(p1);
 		products.add(p2);
 	}
-	
+	//  ADD NEW PRODUCT
 	@PostMapping("/products")
-	public Product saveProduct(@RequestBody Product product) {
+	public Product addProduct(@RequestBody Product product) {
+		//  insert new product
+		products.add(product);
 		return product;
+	}
+	
+	//  UPDATE PRODUCT
+	@PutMapping("/products")
+	public Product updateProduct(@RequestBody Product product) {
+		Product p = findById(product.getId());
+		
+		p.setDescription(product.getDescription());
+		p.setQuantity(product.getQuantity());
+		p.setPrice(product.getPrice());
+		
+		return p;
 	}
 	
 	@GetMapping(value = "/products")
@@ -38,6 +54,7 @@ public class ProductRestController {
 		return products;
 	}
 	
+	//  SEARCH PRODUCT BY ID
 	@GetMapping(value = "/products/{id}")
 	public Product findById(@PathVariable Long id) {
 		for(Product product : products) {
@@ -46,5 +63,13 @@ public class ProductRestController {
 			}
 		}
 		return null;
+	}
+	
+	// delete
+	@DeleteMapping(value = "/products/{id}")
+	public void deleteProduct(@PathVariable Long id) {
+		Product p = findById(id);
+		
+		products.remove(p);
 	}
 }
